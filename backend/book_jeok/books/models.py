@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class Books(models.Model):
+class Book(models.Model):
     """책 모델"""
     book_id = models.BigAutoField(primary_key=True)  # pk로 설정
     title = models.CharField(max_length=255)
@@ -10,7 +10,7 @@ class Books(models.Model):
     genre = models.CharField(max_length=255)
 
 
-class Attachments(models.Model):
+class Attachment(models.Model):
     """책 첨부파일 모델"""
     file_no = models.BigAutoField(primary_key=True)  # pk로 설정
     path = models.CharField(max_length=255)

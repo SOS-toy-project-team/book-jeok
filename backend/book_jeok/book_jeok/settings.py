@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'reviews',
-    'books',
+    'reviews.apps.ReviewsConfig',
+    'books.apps.BooksConfig',
 ]
 
 REST_FRAMEWORK = {
