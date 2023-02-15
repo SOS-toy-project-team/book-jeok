@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+
 class Book(models.Model):
     """책 모델"""
     book_id = models.BigAutoField(primary_key=True)  # pk로 설정
