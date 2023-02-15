@@ -5,14 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3294032-fcf0-4734-a739-aead09277fa0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/book_jeok.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/book_jeok.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/books/serializers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/books/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/book_jeok/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/book_jeok/settings.py" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reviews/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/reviews/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reviews/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/reviews/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reviews/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/reviews/views.py" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/book_jeok/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/book_jeok/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/books/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/books/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/books/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/books/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/books/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/books/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+>>>>>>> cf7061ea1a38c59e4818decef1f1263624fad670
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +44,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2LcqOwm118S7cN6SUKJq6Y6fSF9" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -94,9 +105,13 @@
       <workItem from="1676181170998" duration="2000" />
       <workItem from="1676181194768" duration="11000" />
       <workItem from="1676182139474" duration="318000" />
+<<<<<<< HEAD
       <workItem from="1676368117940" duration="911000" />
       <workItem from="1676369074285" duration="8641000" />
       <workItem from="1676379943668" duration="855000" />
+=======
+      <workItem from="1676437156356" duration="5298000" />
+>>>>>>> cf7061ea1a38c59e4818decef1f1263624fad670
     </task>
     <servers />
   </component>
