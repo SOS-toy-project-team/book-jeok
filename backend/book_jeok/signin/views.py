@@ -11,11 +11,13 @@ class SignUpView(View):
     def post(self,req):
         try:
             data=json.loads(req.body)
-        
-            user_id=data.get('user_id',None)
-            user_pw=data.get('user_pw',None)
+
+            user_name=data.get('user_name',None) #닉네임
+            user_id=data.get('user_id',None) #아이디
+            user_pw=data.get('user_pw',None) #비밀번호
 
             book_user.objects.create(
+                user_name=user_name,
                 user_id=user_id, 
                 user_pw=user_pw
             )
