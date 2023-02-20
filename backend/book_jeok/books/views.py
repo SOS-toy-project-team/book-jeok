@@ -26,6 +26,7 @@ class BookViewSet(ModelViewSet):
     serializer_class = BookSerializer
     queryset = Book.objects.all()
 
+
 class AttachmentViewSet(ModelViewSet):
     serializer_class = AttatchmentSerializer
     queryset = Attachment.objects.all()
