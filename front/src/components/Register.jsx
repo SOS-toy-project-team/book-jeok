@@ -63,6 +63,7 @@ export default function Register() {
     }
     const registerFormSubmitHandler = (e) => {
         e.preventDefault();
+        
         console.log("회원가입 유저 정보" + "\n닉네임은: " + 
         registerInfo.registerNickName + "\n아이디는: " + 
         registerInfo.registerId + "\n비밀번호는: " + 
