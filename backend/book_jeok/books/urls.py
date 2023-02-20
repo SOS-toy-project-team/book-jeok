@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-
+from .views import api_book_search
 
 urlpatterns = [
     path("", views.BookViewSet.as_view(
@@ -18,4 +18,5 @@ urlpatterns = [
             }
         ),
     ),
+    path("api_book_search", api_book_search),
 ]

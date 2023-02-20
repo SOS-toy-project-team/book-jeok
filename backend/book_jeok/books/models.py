@@ -9,6 +9,9 @@ class Book(models.Model):
     title = models.CharField(max_length=255)
     publisher = models.CharField(max_length=255)
     genre = models.CharField(max_length=255)
+    author = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
+    pubdate = models.DateTimeField()
 
 
 class Attachment(models.Model):
