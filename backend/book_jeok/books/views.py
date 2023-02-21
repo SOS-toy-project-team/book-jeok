@@ -5,7 +5,6 @@ from django.http import HttpResponse
 
 from book_jeok import settings
 from .models import Book
-from .models import Attachment
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.http.response import HttpResponse
@@ -16,7 +15,6 @@ from django.shortcuts import get_object_or_404
 # from django.core.paginator import Paginator
 from rest_framework.viewsets import ModelViewSet
 from .serializers import BookSerializer
-from .serializers import AttatchmentSerializer
 from django.http import JsonResponse
 
 # API
@@ -28,11 +26,6 @@ import json
 class BookViewSet(ModelViewSet):
     serializer_class = BookSerializer
     queryset = Book.objects.all()
-
-
-class AttachmentViewSet(ModelViewSet):
-    serializer_class = AttatchmentSerializer
-    queryset = Attachment.objects.all()
 
 
 # API book search

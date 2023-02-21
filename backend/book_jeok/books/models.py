@@ -12,13 +12,4 @@ class Book(models.Model):
     author = models.CharField(max_length=255) # API 작가이름
     description = models.CharField(max_length=255) # API 간단 설명
     pubdate = models.DateTimeField() # API 출간일
-
-
-class Attachment(models.Model):
-    """책 첨부파일 모델"""
-    book_id = models.ForeignKey('Book',on_delete=models.CASCADE, default="")
-    file_no = models.BigAutoField(primary_key=True)  # pk로 설정
     path = models.CharField(max_length=255)
-    book_id = models.ForeignKey('books.Book')
-    """FileField라는 파일관련 모델 필드가 있어서 혹시 몰라 주석 처리 해서 넣어놨습니다."""
-    # path = models.FileField()

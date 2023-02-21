@@ -11,6 +11,7 @@ class ReviewAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     pass
 
+
 @admin.register(User)
 class CommentAdmin(admin.ModelAdmin):
     pass

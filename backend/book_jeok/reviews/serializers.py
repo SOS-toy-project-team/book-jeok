@@ -11,8 +11,15 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class ReviewSerializer(serializers.ModelSerializer):
-    book_id = BookSerializer(read_only=True)
-    user_id = UserSerializer(read_only=True)
+    book_id = BookSerializer()
+    user_id = UserSerializer()
+
+    class Meta:
+        model = Review
+        fields = "__all__"
+
+
+class ReviewSerializerSave(serializers.ModelSerializer):
 
     class Meta:
         model = Review
@@ -20,7 +27,13 @@ class ReviewSerializer(serializers.ModelSerializer):
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    user_id = UserSerializer(read_only=True)
+    user_id = UserSerializer()
+
+    class Meta:
+        model = Comment
+        fields = "__all__"
+
+class CommentSerializerSave(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
