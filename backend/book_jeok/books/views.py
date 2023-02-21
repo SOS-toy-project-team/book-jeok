@@ -30,8 +30,9 @@ class BookViewSet(ModelViewSet):
 
 # API book search
 # book api
-def api_book_search(request):
-    if request.method == 'GET':
+# def api_book_search(request):
+class BookSearch(APIView):
+    def get(self, request):
         config_secret_debug = json.loads(open(settings.SECRET_DEBUG_FILE).read())
         client_id = config_secret_debug['NAVER']['CLIENT_ID']
         client_secret = config_secret_debug['NAVER']['CLIENT_SECRET']
