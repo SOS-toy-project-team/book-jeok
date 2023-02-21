@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Register from "./components/Register";
 import AllPosts from "./components/AllPosts";
 import MyPage from "./components/MyPage";
+import Review from "./components/Review";
 import "./styles/App.css";
 
 
@@ -31,6 +32,7 @@ export default function App() {
             <Route path="/register" element={<Register />}></Route>
             <Route path="/all" element={<AllPosts />}></Route>
             <Route path="/mypage" element={<MyPage />}></Route>
+            <Route path="/review" element={<Review />}></Route>
           </Routes>
         </BrowserRouter>
       </div>
