@@ -1,7 +1,9 @@
 import TopNav from ".//TopNav";
 import styled from 'styled-components';
 import "../styles/Form.css";
-import { useReducer } from "react";
+import { useReducer, useContext } from "react";
+import { AppContext } from "../App";
+import { useNavigate } from 'react-router-dom';
 
 const initialLoginInfo = {
     loginId: "",
@@ -31,7 +33,9 @@ const loginReducer = (state, action) => {
 
 export default function Login() {
     const [loginInfo, loginDispatch] = useReducer(loginReducer, initialLoginInfo);
-
+    const login = useContext(AppContext);
+    const navigate = useNavigate();
+    
     const loginIdHandler = (e) => {
         const id = e.target.value;
         loginDispatch({
@@ -53,7 +57,8 @@ export default function Login() {
     const loginFormSubmitHnadler = (e) => {
         e.preventDefault();
         console.log("입력된 유저 정보" + "\n아이디는: " + loginInfo.loginId + "\n비밀번호는: " + loginInfo.loginPassword);
-
+        login.onLogin();
+        navigate("/");
         // axios 백엔드와 통신.
     }
 
