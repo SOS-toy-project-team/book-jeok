@@ -43,8 +43,6 @@ export default function AllPosts() {
                         </BookContent>       
                     ))
                 }
-                
-               
             </HomeMainContent>
         </TopContainer>
 
@@ -56,7 +54,7 @@ const TopContainer = styled.div`
     width: 100%;
     height: 100vh;
     max-width: 1200px;
-    background-color: #e5e5e5;
+    // background-color: #e5e5e5;
 `
 
 const HomeMainContent = styled.div`
@@ -74,6 +72,7 @@ const BookContent = styled.div`
 `
 
 const Img = styled.img`
-    width: 150px;
+    width: 200px;
+    max-height: 330px;
     height: auto;
 `
