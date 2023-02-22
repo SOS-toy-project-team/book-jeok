@@ -57,8 +57,9 @@ export default function Login() {
     const loginFormSubmitHnadler = (e) => {
         e.preventDefault();
         console.log("입력된 유저 정보" + "\n아이디는: " + loginInfo.loginId + "\n비밀번호는: " + loginInfo.loginPassword);
+        login.setLoginId(loginInfo.loginId);
         login.onLogin();
-        navigate("/");
+        navigate(`/mypage/${loginInfo.loginId}`);
         // axios 백엔드와 통신.
     }
 
@@ -87,5 +88,5 @@ const TopContainer = styled.div`
     width: 100%;
     height: 100vh;
     max-width: 1200px;
-    background-color: #e5e5e5;
+    // background-color: #e5e5e5;
 `

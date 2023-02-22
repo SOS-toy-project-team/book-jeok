@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import "../styles/TopNav.css";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import styled from 'styled-components';
 import { AppContext } from "../App";
 
@@ -9,9 +9,12 @@ export default function TopNav() {
     // const [loginStatus, setLoginStatus] = useState(true);
 
     const login = useContext(AppContext);
+    const navigate = useNavigate();
 
-    // console.log(login);
-
+    const onLogooutHandler = () => {
+        login.onLogout();
+        navigate("/");
+    }
     return (
         <div className="navContainer">
             <div className="navItem">
@@ -21,8 +24,8 @@ export default function TopNav() {
 
             <div className="navItem">
                 {login.loginStatus ? <> 
-                    <StyledLink to="/mypage"><div>마이페이지</div></StyledLink>
-                    <LogoutDiv onClick={() => login.onLogout()}>로그아웃</LogoutDiv>
+                    <StyledLink to={`/mypage/${login.loginId}`}><div>마이페이지</div></StyledLink>
+                    <LogoutDiv onClick={onLogooutHandler}>로그아웃</LogoutDiv>
                 </> : 
                 <> 
                     <StyledLink to="/register"><div>회원가입</div></StyledLink>
