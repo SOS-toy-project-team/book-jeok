@@ -1,10 +1,11 @@
 import TopNav from ".//TopNav";
 import styled from 'styled-components';
 import { useState } from "react";
+import { useParams } from "react-router";
 import {Link} from "react-router-dom";
 export default function AllPosts() {
 
-    const user = "SOS";
+    const { userId } = useParams();
     const userReviewData = [
         {
             id: "1",
@@ -101,7 +102,7 @@ export default function AllPosts() {
     return (
         <TopContainer>
             <TopNav />
-            <h1>{user}님이 작성한 글 입니다.</h1>
+            <h1>{userId}님이 작성한 글 입니다.</h1>
             <MyPageContentContainer>
                 <MyPageBox>
                     {userReviewData.map((it, idx) => (
