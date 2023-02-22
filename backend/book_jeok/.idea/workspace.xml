@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3294032-fcf0-4734-a739-aead09277fa0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/book_jeok.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/book_jeok.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/book_jeok/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/book_jeok/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signin/migrations/0002_book_user_user_name_alter_book_user_user_id_and_more.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/signin/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/signin/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/signin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/signin/views.py" afterDir="false" />
     </list>
@@ -91,7 +86,9 @@
       <workItem from="1676964712537" duration="134000" />
       <workItem from="1676964859672" duration="204000" />
       <workItem from="1676965077255" duration="991000" />
-      <workItem from="1676966168119" duration="2039000" />
+      <workItem from="1676966168119" duration="3391000" />
+      <workItem from="1676972806359" duration="940000" />
+      <workItem from="1677049599598" duration="4105000" />
     </task>
     <servers />
   </component>
