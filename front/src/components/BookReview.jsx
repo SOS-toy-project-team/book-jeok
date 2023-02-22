@@ -2,7 +2,7 @@ import TopNav from ".//TopNav";
 import styled from 'styled-components';
 import { useParams } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar, faUser } from "@fortawesome/free-solid-svg-icons";
 export default function BookReview() {
 
     const { bookId } = useParams();
@@ -98,6 +98,29 @@ export default function BookReview() {
             genre: "소설",
             desc: "전 국민이 힘겨워하는 불황에 여느 세대보다 더 많이 흔들리는 이들이 있다. 가족을 짊어지고 커리어의 정점을 향해가고 있는 40대들이다. 마흔이 되면 괜찮아질 줄 았았는데, 삶이 좀 더 안정될 거라 믿었는데 실상은 그렇지가 않다. 대기업과 금융권에서 올해 만 40세가 된 1982년생을 희망퇴직 대상자에 포함시킨다는 소식이 들려오면서 40대의 불안은 더욱 커지고 있다."
         },
+    ];
+
+    const reviewComment = [
+        {
+            name: "TAR 타르",
+            comment: "우리가 케이트 블란쳇에게 열광하는 이유",
+        },
+        {
+            name: "자백",
+            comment: "고통없는 구원은 없고 고통없는 진실도 없다"
+        },
+        {
+            name: "앤드맨과 와스프",
+            comment: "캉의 임팩트는 좀 약하고 아쉬운것도 있지만 그래도 그외의것은 재미있게 잘봤습니다"
+        },
+        {
+            name: "라푼젤",
+            comment: "오랜만에 보니깐 너무 재밌음ㅜㅜㅜㅜ이건 진짜 잊어버릴때쯤 꼭한번씩 봐줘야되ㅠㅠ언제봐도 재밌는영화!!!!"
+        },
+        {
+            name: "크레이지 컴패티션",
+            comment: "관조하되 투영되어 번지는 웃음. 그들 서로의 비웃음은 관객의 웃음이 된다 신고"
+        },
     ]
 
     const bookData = userReviewData.filter(it => it.id === bookId)
@@ -136,6 +159,20 @@ export default function BookReview() {
                     
                 </BookReviewInfo>
             </BookReviewContainer>
+
+            <BookReviewComment>
+                {reviewComment.map((it, idx) => (
+                    <CommnetBox>
+                        <CommentUserInfo>
+                            <FontAwesomeIcon icon={faUser} />
+                            <CommentInfoName>{it.name}</CommentInfoName>
+                        </CommentUserInfo>
+                        <UserComment>{it.comment}</UserComment>
+                    </CommnetBox>
+                ))}
+                
+            </BookReviewComment>
+
         </TopContainer>
 
     );
@@ -216,4 +253,41 @@ const BookInfoDesc = styled.div`
     font-weight: bold;
     font-size: 1.3em;
     margin-right: 30px;
+`
+
+const BookReviewComment = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    // background-color: black;
+    color: white;
+    width: 100%;
+`
+
+const CommentUserInfo = styled.div`
+    display: flex;
+    width: 50%;
+`
+
+const UserComment = styled.div`
+    width: 50%;
+`
+
+const CommnetBox = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 76%;
+    height: 50px;
+    background-color: #fffcf2;
+    margin: 10px 0px;
+    margin-right: 30px;
+    color: black;
+    border-radius: 10px;
+    padding: 10px;
+`
+
+const CommentInfoName = styled.div`
+    margin-left: 10px;
+    font-weight: bold;
 `

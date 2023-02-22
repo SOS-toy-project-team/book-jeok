@@ -1,7 +1,7 @@
 import TopNav from ".//TopNav";
 import styled from 'styled-components';
 import "../styles/Form.css";
-import { useReducer, useContext } from "react";
+import { useReducer, useContext, useState } from "react";
 import { AppContext } from "../App";
 import { useNavigate } from 'react-router-dom';
 
@@ -33,11 +33,15 @@ const loginReducer = (state, action) => {
 
 export default function Login() {
     const [loginInfo, loginDispatch] = useReducer(loginReducer, initialLoginInfo);
+    const [loginFail, setLoginFail] = useState(false);
     const login = useContext(AppContext);
     const navigate = useNavigate();
     
     const loginIdHandler = (e) => {
         const id = e.target.value;
+        // if (loginFail) {
+        //     setLoginFail(false);
+        // }
         loginDispatch({
             type: "USER_ID",
             id,
@@ -47,6 +51,9 @@ export default function Login() {
 
     const loginPasswordHandler = (e) => {
         const password = e.target.value;
+        // if (loginFail) {
+        //     setLoginFail(false);
+        // }
         loginDispatch({
             type: "USER_PASSWORD",
             password,
@@ -58,8 +65,24 @@ export default function Login() {
         e.preventDefault();
         console.log("입력된 유저 정보" + "\n아이디는: " + loginInfo.loginId + "\n비밀번호는: " + loginInfo.loginPassword);
         login.setLoginId(loginInfo.loginId);
+        setLoginFail(true);
         login.onLogin();
         navigate(`/mypage/${loginInfo.loginId}`);
+
+
+
+
+
+        // if (loginInfo.loginId === "김민구") { //로그인 실패시 테스트용 코드
+        //     login.setLoginId(loginInfo.loginId);
+        //     setLoginFail(true);
+        //     login.onLogin();
+        //     navigate(`/mypage/${loginInfo.loginId}`);
+        // }
+        // else {
+        //     setLoginFail(true);
+        // }
+
         // axios 백엔드와 통신.
     }
 
@@ -75,6 +98,8 @@ export default function Login() {
                     <label htmlFor="">비밀번호</label>
                     <input type="password" onChange={loginPasswordHandler}/>
 
+                    {loginFail ? <LoginFailP>올바른 아이디와 비밀번호를 입력해주세요</LoginFailP> : <></>}
+
                     <button>로그인</button>
                 </form>
             </div>
@@ -89,4 +114,8 @@ const TopContainer = styled.div`
     height: 100vh;
     max-width: 1200px;
     // background-color: #e5e5e5;
+`
+
+const LoginFailP = styled.p`
+    color: red;
 `
