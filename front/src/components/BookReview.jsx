@@ -1,10 +1,12 @@
 import TopNav from ".//TopNav";
 import styled from 'styled-components';
-import { useState } from "react";
-import {Link} from "react-router-dom";
-export default function AllPosts() {
+import { useParams } from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+export default function BookReview() {
 
-    const user = "SOS";
+    const { bookId } = useParams();
+
     const userReviewData = [
         {
             id: "1",
@@ -98,31 +100,45 @@ export default function AllPosts() {
         },
     ]
 
+    const bookData = userReviewData.filter(it => it.id === bookId)
+    const starCnt = () => {
+        const starArray = [];
+        for(let i=0 ; i < bookData[0].rank ; i++) {
+            starArray.push(i);
+        }
+
+        return starArray;
+    }
+    
+    
+
     return (
         <TopContainer>
             <TopNav />
-            <h1>{user}님이 작성한 글 입니다.</h1>
-            <MyPageContentContainer>
-                <MyPageBox>
-                    {userReviewData.map((it, idx) => (
-                        <BookBox key={idx}>
-                            <Link to={`/bookreview/${it.id}`}><BookImg src={it.bookImg} alt="" /></Link>
-                            <BookInfomation>
-                                <BookTitleH5>{it.bookTitle}</BookTitleH5>
-                                <BookPubAndWriter>
-                                    <BookPublishedDiv>{it.bookPublish}</BookPublishedDiv>
-                                    <div>{it.bookWriter}</div>         
-                                </BookPubAndWriter>
-                            </BookInfomation>
-                        </BookBox>
-                    ))
-                    }   
-                </MyPageBox>
-            </MyPageContentContainer>
+            <h1>{bookData[0].bookTitle}</h1>
+            <BookReviewContainer>
+                <BookImgBox>
+                    <BookReviewImg src={bookData[0].bookImg} alt="" />
+                </BookImgBox>
+                <BookReviewInfo>
+                    <BookInfoTitle>{bookData[0].bookTitle}</BookInfoTitle>
+                    <BookInfoPublished>
+                        {bookData[0].bookPublish}
+                        <BookInfoGenre>{bookData[0].genre}</BookInfoGenre>
+                        <BookInfoWriter>{bookData[0].bookWriter}</BookInfoWriter>
+                    </BookInfoPublished>
+                    
+                    <StarList>
+                        {starCnt().map((it,idx) => <FontAwesomeIcon id={idx} icon={faStar} />)}
+                        <BookInfoRank>{bookData[0].rank}</BookInfoRank>
+                    </StarList>
+                    <BookInfoDesc>{bookData[0].desc}</BookInfoDesc>
+                    
+                </BookReviewInfo>
+            </BookReviewContainer>
         </TopContainer>
 
     );
-
 }
 
 const TopContainer = styled.div`
@@ -132,58 +148,72 @@ const TopContainer = styled.div`
     // background-color: #e5e5e5;
 `
 
-const MyPageContentContainer = styled.div`
+const StarList = styled.div`
     display: flex;
-    width: 100%;
-    justify-content: center;
-`
-
-const MyPageBox = styled.div`
-    display: flex;
-    width: 100%;
     justify-content: flex-start;
-    flex-wrap: wrap;
-    // background-color: black;
+    color: #ffb703;
+    font-size: 1.7em;
+    width: 100%;
 `
 
-const BookBox = styled.div`
-    width: 260px;
-    height: 400px;
+
+const BookReviewContainer = styled.div`
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    // background-color: #94d2bd;
-    padding: 10px;
-    margin: 20px 10px;
+    width: 100%;
+    min-height: 300px;
+    // background-color: gray;
 `
 
-const BookImg = styled.img`
-    width: 250px;
-    max-height: 330px;
+const BookImgBox = styled.div`
+    width: 70%;
+`
+
+const BookReviewImg = styled.img`
+    width: 80%;
     height: auto;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 `
 
-const BookInfomation = styled.div`
+const BookReviewInfo = styled.div`
     display: flex;
-    width: 100%;
-    height: 100%;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+    justify-content: space-around;
+    // background-color: black;
+    // color: white;
 `
 
-const BookPubAndWriter = styled.div`
-    margin-top: 0;
+const BookInfoTitle = styled.div`
+    font-weight: bold;
+    font-size: 2.5em;
+`
+
+const BookInfoPublished = styled.div`
     display: flex;
-    width: 100%;
-    justify-content: center;
-    color: #6c757d;
+    color: gray;
+    font-size: 1em;
 `
 
-const BookPublishedDiv = styled.div`
-    margin-right: 10px;
+const BookInfoWriter = styled.div`
+    margin-left: 1.5em;
+    color: gray;
+    font-weight: bold;
 `
+const BookInfoRank = styled.div`
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-left: 10px;
+    color: black;
+`
+const BookInfoGenre = styled.div`
+    // border-bottom: 1px solid black;
+    color: gray;
+    margin-left: 1.5em;
+    font-weight: 500;
 
-const BookTitleH5 = styled.h5`
-    margin-bottom: 5px;
+`
+const BookInfoDesc = styled.div`
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-right: 30px;
 `
