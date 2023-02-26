@@ -11,9 +11,18 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+# API
+import os
+import sys
+import json
+from django.core.exceptions import ImproperlyConfigured
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# API add
+ROOT_DIR = os.path.dirname(BASE_DIR)
+SECRET_DEBUG_FILE = os.path.join(ROOT_DIR, 'book_jeok/settings_debug.json')
 
 
 # Quick-start development settings - unsuitable for production
@@ -37,8 +46,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'signin',
+    'rest_framework',
+    'reviews.apps.ReviewsConfig',
+    'books.apps.BooksConfig',
+    'signin.apps.SigninConfig',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
