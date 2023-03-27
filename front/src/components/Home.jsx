@@ -1,6 +1,7 @@
 import React from 'react';
 import TopNav from ".//TopNav";
 import styled from 'styled-components';
+import axios from 'axios';
 
 
 export default function Home() {
@@ -111,6 +112,14 @@ export default function Home() {
 
     ); 
 }
+
+axios.get("books", null, { params: {q: "해리포터"}})
+        .then((res) => {
+            console.log(res);
+        })
+        .catch((err) => {
+            console.log("교신 실패")
+        })
 
 const TopContainer = styled.div`
     width: 100%;
