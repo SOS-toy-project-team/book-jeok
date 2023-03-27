@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import TopNav from ".//TopNav";
 import styled from 'styled-components';
+import axios from 'axios';
 
 
 export default function Home() {
+
+
+    useEffect(() => {
+        axios.get("books", null, { params: {q: "해리포터"}})
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log("교신 실패")
+            })
+    }, [])
 
     const userReviewData = [
         {
@@ -110,7 +122,11 @@ export default function Home() {
         </TopContainer>
 
     ); 
+    
 }
+
+
+
 
 const TopContainer = styled.div`
     width: 100%;

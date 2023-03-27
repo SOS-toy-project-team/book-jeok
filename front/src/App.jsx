@@ -7,6 +7,7 @@ import AllPosts from "./components/AllPosts";
 import MyPage from "./components/MyPage";
 import Review from "./components/Review";
 import BookReview from "./components/BookReview";
+import axios from 'axios';
 import "./styles/App.css";
 
 export const AppContext = createContext(null);
