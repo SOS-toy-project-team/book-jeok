@@ -22,7 +22,7 @@ class Review(models.Model):
 class Comment(models.Model):
     """리뷰에 달릴 댓글 모델"""
     comment_id = models.BigAutoField(primary_key=True)  # pk로 설정
-    review_id = models.ForeignKey('Review', on_delete=models.CASCADE)
+    review_id = models.ForeignKey('Review', on_delete=models.CASCADE, related_name='comment')
     user_id = models.ForeignKey('signin.book_user', on_delete=models.CASCADE)
     # user_id = models.ForeignKey('User', on_delete=models.CASCADE) # 임시 USER 연결
     created_time = models.DateField(auto_now_add=True)
