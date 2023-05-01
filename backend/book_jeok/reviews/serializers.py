@@ -8,16 +8,16 @@ from signin.models import book_user
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = book_user
-        fields = "__all__"
+        fields = ["user_id", "user_nickname"]
 
 
 class ReviewSerializer(serializers.ModelSerializer):
-    book_id = BookSerializer(read_only=True)
-    user_id = UserSerializer(read_only=True)
+    book = BookSerializer(read_only=True, source='book_id')
+    user = UserSerializer(read_only=True, source='user_id')
 
     class Meta:
         model = Review
-        fields = "__all__"
+        exclude = ["book_id", "user_id"]
 
 
 class ReviewSerializerSave(serializers.ModelSerializer):
@@ -28,11 +28,12 @@ class ReviewSerializerSave(serializers.ModelSerializer):
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    user_id = UserSerializer()
+    user = UserSerializer(source='user_id')
 
     class Meta:
         model = Comment
-        fields = "__all__"
+        fields = ["comment_id", "user", "content", "created_time"]
+
 
 class CommentSerializerSave(serializers.ModelSerializer):
 
